@@ -21,10 +21,18 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({})
-			lspconfig.tsserver.setup({})
-			lspconfig.svelte.setup({})
+			lspconfig.lua_ls.setup({
+        capabilities = capabilities
+      })
+			lspconfig.tsserver.setup({
+        capabilities = capabilities
+      })
+			lspconfig.svelte.setup({
+        capabilities = capabilities
+      })
 			lspconfig.emmet_language_server.setup({
 				filetypes = {
 					"css",
