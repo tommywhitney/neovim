@@ -13,6 +13,7 @@ return {
 					"lua_ls",
 					"tsserver",
 					"svelte",
+					"emmet_language_server",
 				},
 			})
 		end,
@@ -24,6 +25,26 @@ return {
 			lspconfig.lua_ls.setup({})
 			lspconfig.tsserver.setup({})
 			lspconfig.svelte.setup({})
+			lspconfig.emmet_language_server.setup({
+				filetypes = {
+					"css",
+					"eruby",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"sass",
+					"scss",
+					"pug",
+					"typescriptreact",
+          "svelte",
+				},
+				init_options = {
+					showAbbreviationSuggestions = true,
+					showExpandedAbbreviation = "always",
+					showSuggestionsAsSnippets = false,
+				},
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
