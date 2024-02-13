@@ -11,8 +11,11 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
+          "html",
+          "cssls",
 					"tsserver",
 					"svelte",
+          "tailwindcss",
 					"emmet_language_server",
 				},
 			})
@@ -27,10 +30,19 @@ return {
 			lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
+			lspconfig.html.setup({
+        capabilities = capabilities
+      })
+			lspconfig.cssls.setup({
+        capabilities = capabilities
+      })
 			lspconfig.tsserver.setup({
         capabilities = capabilities
       })
 			lspconfig.svelte.setup({
+        capabilities = capabilities
+      })
+			lspconfig.tailwindcss.setup({
         capabilities = capabilities
       })
 			lspconfig.emmet_language_server.setup({
