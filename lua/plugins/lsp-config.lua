@@ -11,12 +11,13 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-          "html",
-          "cssls",
+					"html",
+					"cssls",
 					"tsserver",
 					"svelte",
-          "tailwindcss",
+					"tailwindcss",
 					"emmet_language_server",
+					"pyright",
 				},
 			})
 		end,
@@ -28,23 +29,26 @@ return {
 
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
+				capabilities = capabilities,
+			})
 			lspconfig.html.setup({
-        capabilities = capabilities
-      })
+				capabilities = capabilities,
+			})
 			lspconfig.cssls.setup({
-        capabilities = capabilities
-      })
+				capabilities = capabilities,
+			})
 			lspconfig.tsserver.setup({
-        capabilities = capabilities
-      })
+				capabilities = capabilities,
+			})
 			lspconfig.svelte.setup({
-        capabilities = capabilities
-      })
+				capabilities = capabilities,
+			})
 			lspconfig.tailwindcss.setup({
-        capabilities = capabilities
-      })
+				capabilities = capabilities,
+			})
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.emmet_language_server.setup({
 				filetypes = {
 					"css",
@@ -57,7 +61,7 @@ return {
 					"scss",
 					"pug",
 					"typescriptreact",
-          "svelte",
+					"svelte",
 				},
 				init_options = {
 					showAbbreviationSuggestions = true,
