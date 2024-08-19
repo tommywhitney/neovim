@@ -17,8 +17,9 @@ return {
           "svelte",
           "tailwindcss",
           "emmet_language_server",
-          "pyright",
           "eslint",
+          "pyright",
+          "ruff",
         },
       })
     end,
@@ -41,13 +42,40 @@ return {
       lspconfig.tsserver.setup({
         capabilities = capabilities,
       })
+      lspconfig.pyright.setup({
+        capabilities = capabilities,
+        init_options = {
+          settings = {
+            pyright = {
+              settings = {
+                pyright = {
+                  disableOrganizeImports = true, -- Using Ruff
+                },
+                python = {
+                  analysis = {
+                    ignore = { "*" }, -- Using Ruff
+                  },
+                },
+              },
+            },
+          },
+        },
+      })
+      lspconfig.ruff.setup({
+        capabilities = capabilities,
+        init_options = {
+          settings = {
+            args = {
+              "--line-length=120",
+              "--indent-width=4",
+            },
+          },
+        },
+      })
       lspconfig.svelte.setup({
         capabilities = capabilities,
       })
       lspconfig.tailwindcss.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.pyright.setup({
         capabilities = capabilities,
       })
       lspconfig.eslint.setup({
